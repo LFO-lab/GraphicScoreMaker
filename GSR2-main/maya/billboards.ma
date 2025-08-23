@@ -1,6 +1,6 @@
 //Maya ASCII 2025 scene
 //Name: billboards.ma
-//Last modified: Fri, Aug 22, 2025 11:04:17 PM
+//Last modified: Fri, Aug 22, 2025 11:11:22 PM
 //Codeset: 1252
 requires maya "2025";
 requires "stereoCamera" "10.0";
@@ -13,7 +13,7 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202404240506-c155a58772";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 26100)";
-fileInfo "UUID" "4DB58696-4BAD-1E63-7C53-D59C22F3C25B";
+fileInfo "UUID" "E0F86468-4563-9F1F-8CD6-84AB359AB824";
 createNode transform -s -n "persp";
 	rename -uid "C1D35D32-4869-05D7-C0CC-24810BDB71E8";
 	setAttr ".v" no;
@@ -80,6 +80,7 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode transform -n "Circle";
 	rename -uid "206D9FBB-4DBE-669A-E7AB-508032A9BD95";
+	setAttr ".v" no;
 createNode mesh -n "CircleShape" -p "Circle";
 	rename -uid "4D8872EC-4122-73B7-F83A-E4AF8157F4F8";
 	setAttr -k off ".v";
@@ -303,8 +304,6 @@ createNode mesh -n "CircleShape" -p "Circle";
 createNode transform -n "Diamond";
 	rename -uid "6D0BE546-4C2E-B6D0-AB47-F6A043BFE70C";
 	setAttr ".v" no;
-	setAttr ".r" -type "double3" 90 0 45 ;
-	setAttr ".s" -type "double3" 1.414 1 1.414 ;
 createNode mesh -n "DiamondShape" -p "Diamond";
 	rename -uid "410D847F-429C-314C-4860-6CB5697C927C";
 	setAttr -k off ".v";
@@ -329,6 +328,8 @@ createNode mesh -n "DiamondShape" -p "Diamond";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 4 ".pt[0:3]" -type "float3"  0.5 -0.99984896 -0.5 0.49984899 
+		0 -0.5 -0.49984899 0 0.5 -0.5 0.99984896 0.5;
 	setAttr -s 4 ".vt[0:3]"  -0.5 0 0.5 0.5 0 0.5 -0.5 0 -0.5 0.5 0 -0.5;
 	setAttr -s 4 ".ed[0:3]"  0 1 0 0 2 0 1 3 0 2 3 0;
 	setAttr -ch 4 ".fc[0]" -type "polyFaces" 
@@ -341,8 +342,6 @@ createNode mesh -n "DiamondShape" -p "Diamond";
 createNode transform -n "Plane";
 	rename -uid "5A04EB25-4ABE-523D-6E73-6BBE0CFD7DB1";
 	setAttr ".v" no;
-	setAttr ".r" -type "double3" 90 0 0 ;
-	setAttr ".s" -type "double3" 2 1 2 ;
 createNode mesh -n "PlaneShape" -p "Plane";
 	rename -uid "C0296233-4F15-CEC2-5A3B-B0B49133F8AD";
 	setAttr -k off ".v";
@@ -365,6 +364,8 @@ createNode mesh -n "PlaneShape" -p "Plane";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 4 ".pt[0:3]" -type "float3"  -0.5 -1 -0.5 0.5 -1 -0.5 
+		-0.5 1 0.5 0.5 1 0.5;
 	setAttr -s 4 ".vt[0:3]"  -0.5 0 0.5 0.5 0 0.5 -0.5 0 -0.5 0.5 0 -0.5;
 	setAttr -s 4 ".ed[0:3]"  0 1 0 0 2 0 1 3 0 2 3 0;
 	setAttr -ch 4 ".fc[0]" -type "polyFaces" 
@@ -376,9 +377,6 @@ createNode mesh -n "PlaneShape" -p "Plane";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "Triangle";
 	rename -uid "4DC5F2B7-4AA6-ADD7-AA17-78A86464C6EA";
-	setAttr ".v" no;
-	setAttr ".r" -type "double3" 90 0 0 ;
-	setAttr ".s" -type "double3" 2 1 2 ;
 createNode mesh -n "TriangleShape" -p "Triangle";
 	rename -uid "53409DA1-4A02-BE93-61D6-B9B3FFF06081";
 	setAttr -k off ".v";
@@ -403,6 +401,8 @@ createNode mesh -n "TriangleShape" -p "Triangle";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 4 ".pt[0:3]" -type "float3"  -0.5 -1 -0.5 -0.5 1 0.5 -0.5 
+		0 0 0.5 0 0;
 	setAttr -s 4 ".vt[0:3]"  -0.5 0 0.5 -0.5 0 -0.5 -0.5 0 0 0.5 0 0;
 	setAttr -s 5 ".ed[0:4]"  0 2 0 2 1 0 2 3 1 1 3 0 3 0 0;
 	setAttr -s 2 -ch 6 ".fc[0:1]" -type "polyFaces" 
@@ -508,7 +508,7 @@ createNode script -n "sceneConfigurationScriptNode";
 	setAttr ".b" -type "string" "playbackOptions -min 1 -max 120 -ast 1 -aet 200 ";
 	setAttr ".st" 6;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "B2E0BE1C-47FE-4736-C0E0-5A8C7F293B58";
+	rename -uid "668A8FB5-4743-B7B8-B961-F2971F26C175";
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
