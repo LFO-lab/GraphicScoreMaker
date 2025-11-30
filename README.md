@@ -1,4 +1,4 @@
-Currently under developpement, SIGN/e (Système d’illustrations graphiques pour la notation et l’édition / Symbol-based interface for graphic notation edition) is a macOS Max for Live allowing to create graphical score files from banks of user graphics. 
+Currently under developpement, SIGN/e (Système d’illustrations graphiques pour la notation et l’édition / Symbol-based interface for graphic notation edition) is a Max for Live device allowing the creation of graphical score files from banks of user graphics. 
 
 Programming: Evan Montpellier. 
 Coordination: Pierre-Luc Lecours. 
